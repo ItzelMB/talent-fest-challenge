@@ -14,13 +14,16 @@ const quality = [
 ];
 // ///// Traer de la DB //// //
 
+const INITIAL_STATE = {
+  product: products[0].value,
+  quality: quality[0].value,
+  quantity: 0
+};
 class RegistryForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: products[0].value,
-      quality: quality[0].value,
-      quantity: 0
+      ...INITIAL_STATE
     };
     this.handleChangeProduct = this.handleChangeProduct.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,16 +32,19 @@ class RegistryForm extends Component {
   }
 
   handleChangeProduct(event) {
-    this.setState({ product: event.target.value });
+    let value = event.target.value;
+    this.setState({ product: value });
   }
   handleChangeQuality(event) {
-    this.setState({ quality: event.target.value });
+    let value = event.target.value;
+    this.setState({ quality: value });
   }
   handleChangeQuantity(event) {
-    this.setState({ quantity: event.target.value });
+    let value = event.target.value;
+    this.setState({ quantity: value });
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     alert(
       "Product: " +
         this.state.product +
@@ -47,7 +53,9 @@ class RegistryForm extends Component {
         "Quantity: " +
         this.state.quantity
     );
-    console.log(this.state);
+
+    this.props.storeItem(this.state);
+    this.setState({ ...INITIAL_STATE });
     event.preventDefault();
   }
 
@@ -60,6 +68,7 @@ class RegistryForm extends Component {
             <select
               value={this.state.product}
               onChange={this.handleChangeProduct}
+              name="product"
             >
               {products.map((el, idx) => (
                 <option key={idx} value={el.value}>
@@ -72,7 +81,7 @@ class RegistryForm extends Component {
           <label>
             Choose quality:
             <select
-              value={this.state.product}
+              value={this.state.quality}
               onChange={this.handleChangeQuality}
             >
               {quality.map((el, idx) => (
