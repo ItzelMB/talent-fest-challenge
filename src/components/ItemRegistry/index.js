@@ -2,7 +2,7 @@ import React from "react";
 
 const ItemRegistry = () => (
   <div>
-    <h1>ItemRegistry</h1>
+    <h1>Register Item</h1>
   </div>
 );
 
