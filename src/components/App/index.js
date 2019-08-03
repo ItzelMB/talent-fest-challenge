@@ -14,6 +14,7 @@ const App = () => (
     <Router>
       <div>
         <Navigation /> <hr />
+        <h1>Inventory System</h1>
         <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
         <Route path={ROUTES.SIGN_IN} component={SignInPage} />
         <Route path={ROUTES.CONFIGURATION} component={ConfigurationPage} />
@@ -21,7 +22,6 @@ const App = () => (
         <Route path={ROUTES.ITEM_REGISTRY} component={ItemRegistryPage} />
       </div>
     </Router>
-    <h1>App</h1>
   </div>
 );
 
