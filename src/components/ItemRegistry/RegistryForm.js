@@ -96,6 +96,7 @@ class RegistryForm extends Component {
             Quantity (kg):
             <input
               type="number"
+              step="0.01"
               value={this.state.quantity}
               onChange={this.handleChangeQuantity}
             />
