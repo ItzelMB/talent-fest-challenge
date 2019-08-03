@@ -1,6 +1,0 @@
-export const LANDING = "/";
-export const SIGN_UP = "/signup";
-export const SIGN_IN = "/signin";
-export const CONFIGURATION = "/configuation";
-export const INVENTORY = "/inventory";
-export const ITEM_REGISTRY = "/item-registry";
