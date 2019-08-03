@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { Form, Field } from "react-final-form";
 
-// ///// Traer de la DB //// //
+// VIENEN DE DB //
 const products = [
   { value: "Kidney Beans", label: "Kidney Beans" },
   { value: "Black Beans", label: "Black Beans" },
@@ -12,101 +13,104 @@ const quality = [
   { value: "B", label: "B" },
   { value: "C", label: "C" }
 ];
-// ///// Traer de la DB //// //
+// VIENEN DE DB //
 
-const INITIAL_STATE = {
-  product: products[0].value,
-  quality: quality[0].value,
-  quantity: 0
-};
-class RegistryForm extends Component {
+class FormBase extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      ...INITIAL_STATE
-    };
-    this.handleChangeProduct = this.handleChangeProduct.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChangeQuality = this.handleChangeQuality.bind(this);
-    this.handleChangeQuantity = this.handleChangeQuantity.bind(this);
+    this.state = { items: [] };
+    this.storeItem = this.storeItem.bind(this);
   }
+  sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-  handleChangeProduct(event) {
-    let value = event.target.value;
-    this.setState({ product: value });
-  }
-  handleChangeQuality(event) {
-    let value = event.target.value;
-    this.setState({ quality: value });
-  }
-  handleChangeQuantity(event) {
-    let value = event.target.value;
-    this.setState({ quantity: value });
-  }
+  onSubmit = async values => {
+    await this.sleep(300);
+    window.alert(JSON.stringify(values, 0, 2));
+    console.log(values);
+    this.storeItem(values);
+    console.log(this.state);
+  };
 
-  async handleSubmit(event) {
-    alert(
-      "Product: " +
-        this.state.product +
-        "Quality: " +
-        this.state.quality +
-        "Quantity: " +
-        this.state.quantity
-    );
-
-    this.props.storeItem(this.state);
-    this.setState({ ...INITIAL_STATE });
-    event.preventDefault();
+  storeItem(values) {
+    this.setState(state => {
+      const items = state.items.concat(values);
+      return {
+        items
+      };
+    });
   }
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Choose product:
-            <select
-              value={this.state.product}
-              onChange={this.handleChangeProduct}
-              name="product"
-            >
-              {products.map((el, idx) => (
-                <option key={idx} value={el.value}>
-                  {el.label}
-                </option>
-              ))}
-            </select>
-          </label>
+      <React.Fragment>
+        <Form
+          onSubmit={this.onSubmit}
+          //   initialValues={{ stooge: "larry", employed: false }}
+          render={({ handleSubmit, form, submitting, pristine, values }) => (
+            <form onSubmit={handleSubmit}>
+              <React.Fragment>
+                <label>Product:</label>
+                <Field name="product" component="select">
+                  <option />
+                  {products.map((el, idx) => (
+                    <option key={idx} value={el.value}>
+                      {el.label}
+                    </option>
+                  ))}
+                </Field>
+              </React.Fragment>
+              <React.Fragment>
+                <label>Quality:</label>
+                <Field name="quality" component="select">
+                  <option />
+                  {quality.map((el, idx) => (
+                    <option key={idx} value={el.value}>
+                      {el.label}
+                    </option>
+                  ))}
+                </Field>
+              </React.Fragment>
+              <React.Fragment>
+                <label>Quantity (kg):</label>
+                <Field
+                  name="quantity"
+                  component="input"
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  placeholder="00.00"
+                  pattern="^\d+(?:\.\d{1,2})?$"
+                />
+              </React.Fragment>
 
-          <label>
-            Choose quality:
-            <select
-              value={this.state.quality}
-              onChange={this.handleChangeQuality}
-            >
-              {quality.map((el, idx) => (
-                <option key={idx} value={el.value}>
-                  {el.label}
-                </option>
-              ))}
-            </select>
-          </label>
-
-          <label>
-            Quantity (kg):
-            <input
-              type="number"
-              step="0.01"
-              value={this.state.quantity}
-              onChange={this.handleChangeQuantity}
-            />
-          </label>
-
-          <input type="submit" value="Register" />
-        </form>
-      </div>
+              <React.Fragment>
+                <label>Notes</label>
+                <Field name="notes" component="textarea" placeholder="Notes" />
+              </React.Fragment>
+              <React.Fragment>
+                <button
+                  type="submit"
+                  disabled={submitting || pristine}
+                  // onClick={() => this.storeItem(values)}
+                  // onClick={() => this.props.storeItem(values)}
+                >
+                  Submit
+                </button>
+                <button
+                  type="button"
+                  onClick={form.reset}
+                  disabled={submitting || pristine}
+                >
+                  Reset
+                </button>
+              </React.Fragment>
+              <pre>{JSON.stringify(values, 0, 2)}</pre>
+            </form>
+          )}
+        />
+      </React.Fragment>
     );
   }
 }
 
-export default RegistryForm;
+export default FormBase;
