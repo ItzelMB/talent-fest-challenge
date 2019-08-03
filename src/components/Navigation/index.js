@@ -12,13 +12,13 @@ const Navigation = () => (
         <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
       </li>
       <li>
-        <Link to={ROUTES.CONFIGURATION}>Configuration</Link>
+        <Link to={ROUTES.ITEM_REGISTRY}>Register Item</Link>
       </li>
       <li>
         <Link to={ROUTES.INVENTORY}>Inventory</Link>
       </li>
       <li>
-        <Link to={ROUTES.ITEM_REGISTRY}>Register Item</Link>
+        <Link to={ROUTES.CONFIGURATION}>Configuration</Link>
       </li>
     </ul>
   </nav>
