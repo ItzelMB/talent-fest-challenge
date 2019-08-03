@@ -1,19 +1,7 @@
 import React, { Component } from "react";
 import { Form, Field } from "react-final-form";
-
-// VIENEN DE DB //
-const products = [
-  { value: "Kidney Beans", label: "Kidney Beans" },
-  { value: "Black Beans", label: "Black Beans" },
-  { value: "Soybeans", label: "Soybeans" }
-];
-
-const quality = [
-  { value: "A", label: "A" },
-  { value: "B", label: "B" },
-  { value: "C", label: "C" }
-];
-// VIENEN DE DB //
+import { products, quality } from "./data";
+import RegistryList from "./RegistryList";
 
 class FormBase extends Component {
   constructor(props) {
@@ -25,8 +13,6 @@ class FormBase extends Component {
 
   onSubmit = async values => {
     await this.sleep(300);
-    window.alert(JSON.stringify(values, 0, 2));
-    console.log(values);
     this.storeItem(values);
     console.log(this.state);
   };
@@ -45,7 +31,6 @@ class FormBase extends Component {
       <React.Fragment>
         <Form
           onSubmit={this.onSubmit}
-          //   initialValues={{ stooge: "larry", employed: false }}
           render={({ handleSubmit, form, submitting, pristine, values }) => (
             <form onSubmit={handleSubmit}>
               <React.Fragment>
@@ -88,12 +73,7 @@ class FormBase extends Component {
                 <Field name="notes" component="textarea" placeholder="Notes" />
               </React.Fragment>
               <React.Fragment>
-                <button
-                  type="submit"
-                  disabled={submitting || pristine}
-                  // onClick={() => this.storeItem(values)}
-                  // onClick={() => this.props.storeItem(values)}
-                >
+                <button type="submit" disabled={submitting || pristine}>
                   Submit
                 </button>
                 <button
@@ -104,10 +84,10 @@ class FormBase extends Component {
                   Reset
                 </button>
               </React.Fragment>
-              <pre>{JSON.stringify(values, 0, 2)}</pre>
             </form>
           )}
         />
+        {this.state.items && <RegistryList items={this.state.items} />}
       </React.Fragment>
     );
   }
