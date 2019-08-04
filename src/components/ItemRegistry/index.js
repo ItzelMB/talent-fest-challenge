@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import RegistryForm from "./RegistryForm";
+import { user } from "../../data";
 
 class ItemRegistry extends Component {
   constructor(props) {
@@ -13,8 +14,8 @@ class ItemRegistry extends Component {
         <header>
           <h1>Register Item</h1>
           <section>
-            <p>User: Authenticated user</p>
-            <p>Location: Registered location</p>
+            <p>User: {user.username}</p>
+            <p>Location: {user.userLocation}</p>
           </section>
           <section>
             <RegistryForm storeItem={this.storeItem} />
