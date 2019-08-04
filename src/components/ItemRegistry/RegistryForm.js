@@ -11,6 +11,7 @@ class FormBase extends Component {
     this.removeItem = this.removeItem.bind(this);
     this.submitInventory = this.submitInventory.bind(this);
   }
+
   sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
   onSubmit = async values => {
