@@ -1,21 +1,21 @@
 import React, { Component } from "react";
 import { Form, Field } from "react-final-form";
-import { products, quality } from "../../data/data";
+import { products, quality, user } from "../../data";
 import RegistryList from "./RegistryList";
 
 class FormBase extends Component {
   constructor(props) {
     super(props);
-    this.state = { items: [] };
+    this.state = { user: user.userID, items: [] };
     this.storeItem = this.storeItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
+    this.submitInventory = this.submitInventory.bind(this);
   }
   sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
   onSubmit = async values => {
     await this.sleep(300);
     this.storeItem(values);
-    console.log(this.state);
   };
 
   storeItem(values) {
@@ -37,6 +37,10 @@ class FormBase extends Component {
       };
     });
     console.log(i);
+  }
+
+  submitInventory() {
+    console.log(this.state);
   }
 
   render() {
@@ -103,6 +107,14 @@ class FormBase extends Component {
         {this.state.items && (
           <RegistryList items={this.state.items} removeItem={this.removeItem} />
         )}
+        <div>
+          <button
+            disabled={!this.state.items[0]}
+            onClick={this.submitInventory}
+          >
+            Submit Inventory
+          </button>
+        </div>
       </React.Fragment>
     );
   }

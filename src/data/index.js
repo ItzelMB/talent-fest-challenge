@@ -12,4 +12,12 @@ export const quality = [
   { value: "C", label: "C" }
 ];
 
+// DEBE VENIR DE MONGO DB //
+export const user = {
+  userID: "knjsnikHYUo5878NIU809mK",
+  username: "Random User",
+  userEmail: "random@user.com",
+  userLocation: "Zapopan, Jalisco"
+};
+
 export const userInventory = [];
