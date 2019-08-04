@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, Field } from "react-final-form";
-import { products, quality } from "./data";
+import { products, quality } from "../../data/data";
 import RegistryList from "./RegistryList";
 
 class FormBase extends Component {
@@ -8,6 +8,7 @@ class FormBase extends Component {
     super(props);
     this.state = { items: [] };
     this.storeItem = this.storeItem.bind(this);
+    this.removeItem = this.removeItem.bind(this);
   }
   sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -24,6 +25,18 @@ class FormBase extends Component {
         items
       };
     });
+  }
+
+  removeItem(i) {
+    this.setState(state => {
+      const items = state.items
+        .slice(0, i)
+        .concat(state.items.slice(i + 1, state.items.length));
+      return {
+        items
+      };
+    });
+    console.log(i);
   }
 
   render() {
@@ -74,7 +87,7 @@ class FormBase extends Component {
               </React.Fragment>
               <React.Fragment>
                 <button type="submit" disabled={submitting || pristine}>
-                  Submit
+                  Save Item
                 </button>
                 <button
                   type="button"
@@ -87,7 +100,9 @@ class FormBase extends Component {
             </form>
           )}
         />
-        {this.state.items && <RegistryList items={this.state.items} />}
+        {this.state.items && (
+          <RegistryList items={this.state.items} removeItem={this.removeItem} />
+        )}
       </React.Fragment>
     );
   }

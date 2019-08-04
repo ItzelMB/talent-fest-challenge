@@ -10,6 +10,17 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItzelMB/talent-fest-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ItzelMB/talent-fest-challenge/issues"
+  },
+  "homepage": "https://claudiagarfias.works/laboratoria/grainchain",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

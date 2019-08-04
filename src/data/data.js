@@ -11,3 +11,5 @@ export const quality = [
   { value: "B", label: "B" },
   { value: "C", label: "C" }
 ];
+
+export const userInventory = [];
