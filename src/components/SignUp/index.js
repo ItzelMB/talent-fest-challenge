@@ -24,9 +24,9 @@ class SignUpFormBase extends Component {
     this.handleChangeLocation = this.handleChangeLocation.bind(this);
   }
 
-  // handleChangeLocation(event) {
-  //   this.setState({ location: event.target.value });
-  // }
+  handleChangeLocation(event) {
+    this.setState({ location: event.target.value });
+  }
   onSubmit = event => {
     event.preventDefault();
     console.log(this.state);
