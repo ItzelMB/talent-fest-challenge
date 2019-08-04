@@ -14,10 +14,15 @@ export const quality = [
 
 // DEBE VENIR DE MONGO DB //
 export const user = {
+  email: "agustinjar@gmail.com",
+  location: "Location 1",
   userID: "knjsnikHYUo5878NIU809mK",
-  username: "Random User",
-  userEmail: "random@user.com",
-  userLocation: "Zapopan, Jalisco"
+  username: "Agustín Jaramillo Flores"
 };
 
+export const locations = [
+  { value: "Location 1", label: "Location 1" },
+  { value: "Location 2", label: "Location 2" },
+  { value: "Location 3", label: "Location 3" }
+];
 export const userInventory = [];

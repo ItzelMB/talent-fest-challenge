@@ -15,7 +15,7 @@ class ItemRegistry extends Component {
           <h1>Register Item</h1>
           <section>
             <p>User: {user.username}</p>
-            <p>Location: {user.userLocation}</p>
+            <p>Location: {user.location}</p>
           </section>
           <section>
             <RegistryForm storeItem={this.storeItem} />

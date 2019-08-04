@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { locations } from "../../data";
 
 const SignUpPage = () => (
   <div>
@@ -8,8 +9,9 @@ const SignUpPage = () => (
 );
 
 const INITIAL_STATE = {
-  username: "",
+  userame: "",
   email: "",
+  location: "",
   passwordOne: "",
   passwordTwo: "",
   error: null
@@ -19,8 +21,12 @@ class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
     this.state = { ...INITIAL_STATE };
+    this.handleChangeLocation = this.handleChangeLocation.bind(this);
   }
 
+  // handleChangeLocation(event) {
+  //   this.setState({ location: event.target.value });
+  // }
   onSubmit = event => {
     event.preventDefault();
     console.log(this.state);
@@ -57,6 +63,20 @@ class SignUpFormBase extends Component {
           type="text"
           placeholder="Email"
         />
+        <label>
+          Location:
+          <select
+            value={this.state.location}
+            onChange={this.handleChangeLocation}
+          >
+            <option />
+            {locations.map((el, idx) => (
+              <option key={idx} value={el.value}>
+                {el.label}
+              </option>
+            ))}
+          </select>
+        </label>
         <label>Password</label>
         <input
           name="passwordOne"
