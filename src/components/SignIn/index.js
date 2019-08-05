@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { signin, authenticate } from "../Auth";
 
 const SignInPage = () => (
   <div>
@@ -22,7 +23,24 @@ class SignInFormBase extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
+         this.setState({loading: true})
+         const {email, password} = this.state;
+         const user = {
+             email,
+             password
+         };
+         console.log(user);
+        signin(user).then(data => {
+              if(data.error) {
+                this.setState({error: data.error, loading:false})
+              }
+              else{
+                  //authenticate
+                  authenticate(data, () => {
+                      this.setState({redirectToReferer: true})
+                  });
+              }
+           });
   };
 
   onChange = event => {
