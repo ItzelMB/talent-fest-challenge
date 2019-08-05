@@ -16,25 +16,6 @@ class Configuration extends Component {
   }
 
   componentDidMount() {
-    // const token = isAuthenticated().token
-    // const userId= isAuthenticated().user._id;
-    // read(userId, token).then(data => {
-    //     if(data.error) {
-    //       //  this.setState({});
-    //     } else {
-    //         this.setState({
-    //             id: data._id, 
-    //             name: data.name, 
-    //             email: data.email,
-    //             error:"",
-    //             about: data.about                    
-    //         });
-    //     }
-    // });
-    // console.log(this.state);
-    // const user = isAuthenticated().user;
-    // this.setState({user})
-    // console.log(this.state.user);
     this.setUser();
   }
 
