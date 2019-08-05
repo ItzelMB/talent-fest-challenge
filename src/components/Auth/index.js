@@ -60,3 +60,22 @@ export const  signin = user =>{
         return false
       }
     };
+
+
+    export const create = (userId, token, inventory) => {
+        const body = JSON.stringify(inventory);
+        console.log('INVENTOTY', body)
+
+        return fetch (`${process.env.REACT_APP_API_URL}/inventory/${userId}`, {
+            method: "POST",
+            headers: {
+                'Content-Type': "application/json",
+                Authorization: `Bearer ${token}`
+            },
+            body:body
+        })
+        .then(response => {
+            return response.json();
+        })
+        .catch( err => console.log(err));
+    };

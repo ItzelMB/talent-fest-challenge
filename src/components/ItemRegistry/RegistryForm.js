@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { user } from "../../data";
 import RegistryList from "./RegistryList";
 import FormBase from "./Form";
+import {isAuthenticated, create} from '../Auth';
 
 const INITIAL_STATE = {
-  userID: user.userID,
+  user: {},
   items: []
 };
 class RegistryForm extends Component {
@@ -41,12 +42,31 @@ class RegistryForm extends Component {
     });
   }
 
-  editItem() {}
+  // editItem() {}
 
-  submitInventory() {
-    console.log(this.state);
-    this.setState({ ...INITIAL_STATE });
+  submitInventory(event) {
+    event.preventDefault();
+    
+        console.log(this.state.items)   
+        const userId = isAuthenticated().user._id;
+        const token = isAuthenticated().token;
+        const objeto = {items:null};
+        objeto.items=this.state.items
+        
+        create(userId, token, objeto).then(data => {
+            if(data.error) this.setState({error: data.error});
+            
+            
+        });
+     this.setState({ ...INITIAL_STATE });
+    
   }
+
+  componentDidMount(){
+    //this.postData = new FormData();
+    this.setState({user: isAuthenticated().user}) 
+    console.log(this.state.user);
+}
 
   render() {
     return (

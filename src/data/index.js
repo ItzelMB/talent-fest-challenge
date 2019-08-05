@@ -1,6 +1,6 @@
 // DEBEN VENIR DE MONGO DB //
 export const products = [
-  { value: "Jasmine Rice", label: "Jasmine Rice" },
+  { value: "Rice", label: "Rice" },
   { value: "Black Beans", label: "Black Beans" },
   { value: "Dent Corn", label: "Dent Corn" }
 ];

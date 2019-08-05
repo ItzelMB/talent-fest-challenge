@@ -14,9 +14,9 @@ const Navigation = () => (
       <li>
         <Link to={ROUTES.ITEM_REGISTRY}>Register Item</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to={ROUTES.INVENTORY}>Inventory</Link>
-      </li>
+      </li> */}
       <li>
         <Link to={ROUTES.CONFIGURATION}>Configuration</Link>
       </li>

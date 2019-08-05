@@ -52,7 +52,7 @@ class FormBase extends Component {
               </React.Fragment>
               <React.Fragment>
                 <label>Status:</label>
-                <Field name="quality" component="select">
+                <Field name="status" component="select">
                   <option />
                   {status.map((el, idx) => (
                     <option key={idx} value={el.value}>
@@ -67,16 +67,16 @@ class FormBase extends Component {
                   name="quantity"
                   component="input"
                   type="number"
-                  step="0.01"
-                  min="0"
-                  placeholder="00.00"
-                  pattern="^\d+(?:\.\d{1,2})?$"
+                  // step="0.01"
+                  // min="0"
+                  // placeholder="00.00"
+                  // pattern="^\d+(?:\.\d{1,2})?$"
                 />
               </React.Fragment>
 
               <React.Fragment>
                 <label>Notes</label>
-                <Field name="notes" component="textarea" placeholder="Notes" />
+                <Field name="notesBy" component="textarea" placeholder="Notes" />
               </React.Fragment>
               <React.Fragment>
                 <button type="submit" disabled={submitting || pristine}>
