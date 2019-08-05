@@ -1,17 +1,16 @@
-import React, {Component} from "react";
-import {read, isAuthenticated} from "../Auth";
-
+import React, { Component } from "react";
+import { isAuthenticated } from "../Auth";
 
 class Configuration extends Component {
   constructor(props) {
     super(props);
-    this.state = {  }
-    this.setUser=this.setUser.bind(this);
+    this.state = {};
+    this.setUser = this.setUser.bind(this);
   }
 
-  setUser(){
+  setUser() {
     const user = isAuthenticated().user;
-    this.setState({user})
+    this.setState({ user });
     console.log(this.state.user);
   }
 
@@ -19,17 +18,14 @@ class Configuration extends Component {
     this.setUser();
   }
 
-  render() { 
-    return ( 
+  render() {
+    return (
       <div>
-    <h1>Configuration</h1>
-    <button onClick={this.setUser}>Set user</button>
-  </div>
-     );
+        <h1>Configuration</h1>
+        <button onClick={this.setUser}>Set user</button>
+      </div>
+    );
   }
-
-  
 }
- 
-export default Configuration;
 
+export default Configuration;
