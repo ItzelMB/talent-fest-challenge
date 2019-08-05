@@ -13,7 +13,7 @@ const INITIAL_STATE = {
   name: "",
   email: "",
   location: "",
-  passwordOne: "",
+  password: "",
   passwordTwo: "",
   error: null
 };
@@ -30,25 +30,28 @@ class SignUpFormBase extends Component {
   }
   onSubmit = event => {
     event.preventDefault();
-    const {name, email, passwordOne, location} = this.state;
+    const {name, email, password, location} = this.state;
     const user = {
         name,
         email,
-        passwordOne,
+        password,
         location
     };
     console.log(user);
     signup(user).then(data => {
-         if(data.error) this.setState({error: data.error});
+      console.log(data.error)
+         if(data.error) this.setState({error: data.error}); 
          else this.setState({
              error: "",
              name: "",
              email: "",
-             passwordOne: "",
+             password: "",
              location: "",
              open: true
          });
+         
       });
+      
   };
 
   onChange = event => {
@@ -56,11 +59,11 @@ class SignUpFormBase extends Component {
   };
 
   render() {
-    const { name, email, passwordOne, passwordTwo, error } = this.state;
+    const { name, email, password, passwordTwo, error } = this.state;
 
     const isInvalid =
-      passwordOne !== passwordTwo ||
-      passwordOne === "" ||
+      password !== passwordTwo ||
+      password === "" ||
       email === "" ||
       name === "";
 
@@ -98,8 +101,8 @@ class SignUpFormBase extends Component {
         </label>
         <label>Password</label>
         <input
-          name="passwordOne"
-          value={passwordOne}
+          name="password"
+          value={password}
           onChange={this.onChange}
           type="password"
           placeholder="Password"
