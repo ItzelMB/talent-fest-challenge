@@ -12,6 +12,7 @@
     "react-helmet": "^5.2.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "serve": "^11.1.0",
     "workbox-webpack-plugin": "^4.3.1"
   },
   "repository": {
@@ -26,7 +27,8 @@
   },
   "homepage": "https://claudiagarfias.works/laboratoria/grainchain",
   "scripts": {
-    "start": "react-app-rewired start",
+    "dev":"react-app-rewired start",
+    "start": "serve ./build -s -l 4000",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject"
