@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { locations } from "../../data";
+import { signup } from '../Auth';
 
 const SignUpPage = () => (
   <div>
@@ -9,7 +10,7 @@ const SignUpPage = () => (
 );
 
 const INITIAL_STATE = {
-  userame: "",
+  name: "",
   email: "",
   location: "",
   passwordOne: "",
@@ -29,7 +30,25 @@ class SignUpFormBase extends Component {
   }
   onSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
+    const {name, email, passwordOne, location} = this.state;
+    const user = {
+        name,
+        email,
+        passwordOne,
+        location
+    };
+    console.log(user);
+    signup(user).then(data => {
+         if(data.error) this.setState({error: data.error});
+         else this.setState({
+             error: "",
+             name: "",
+             email: "",
+             passwordOne: "",
+             location: "",
+             open: true
+         });
+      });
   };
 
   onChange = event => {
