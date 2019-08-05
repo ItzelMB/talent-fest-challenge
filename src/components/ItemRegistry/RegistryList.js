@@ -28,7 +28,7 @@ class RegistryList extends Component {
               <span> {el.quantity ? el.quantity : "~"} kg</span>{" "}
               <strong>Notes:</strong>
               <span> {el.notes ? el.notes : "~"}</span>
-              <button onClick={() => this.onEditItem()}>Edit Item</button>
+              {/* <button onClick={() => this.onEditItem()}>Edit Item</button> */}
               <button
                 onClick={() => {
                   removeItem(idx);
