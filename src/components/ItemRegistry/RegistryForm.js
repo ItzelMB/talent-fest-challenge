@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { user } from "../../data";
 import RegistryList from "./RegistryList";
 import FormBase from "./Form";
 import {isAuthenticated, create} from '../Auth';
@@ -48,6 +47,8 @@ class RegistryForm extends Component {
     event.preventDefault();
     
         console.log(this.state.items)   
+        const user = isAuthenticated().user;
+        console.log(user);
         const userId = isAuthenticated().user._id;
         const token = isAuthenticated().token;
         const objeto = {items:null};
@@ -66,6 +67,7 @@ class RegistryForm extends Component {
     //this.postData = new FormData();
     this.setState({user: isAuthenticated().user}) 
     console.log(this.state.user);
+    
 }
 
   render() {
