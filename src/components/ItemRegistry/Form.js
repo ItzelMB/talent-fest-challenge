@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, Field } from "react-final-form";
-import { products, quality } from "../../data";
+import { products, quality, status } from "../../data";
 
 class FormBase extends Component {
   constructor(props) {
@@ -44,6 +44,17 @@ class FormBase extends Component {
                 <Field name="quality" component="select">
                   <option />
                   {quality.map((el, idx) => (
+                    <option key={idx} value={el.value}>
+                      {el.label}
+                    </option>
+                  ))}
+                </Field>
+              </React.Fragment>
+              <React.Fragment>
+                <label>Status:</label>
+                <Field name="quality" component="select">
+                  <option />
+                  {status.map((el, idx) => (
                     <option key={idx} value={el.value}>
                       {el.label}
                     </option>

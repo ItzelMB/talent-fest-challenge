@@ -37,20 +37,20 @@ class SignUpFormBase extends Component {
   };
 
   render() {
-    const { username, email, passwordOne, passwordTwo, error } = this.state;
+    const { name, email, passwordOne, passwordTwo, error } = this.state;
 
     const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === "" ||
       email === "" ||
-      username === "";
+      name === "";
 
     return (
       <form onSubmit={this.onSubmit} className="sign-up-form">
         <label>Full Name</label>
         <input
-          name="username"
-          value={username}
+          name="name"
+          value={name}
           onChange={this.onChange}
           type="text"
           placeholder="Nombre Completo"

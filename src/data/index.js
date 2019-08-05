@@ -25,4 +25,10 @@ export const locations = [
   { value: "Location 2", label: "Location 2" },
   { value: "Location 3", label: "Location 3" }
 ];
+
+export const status = [
+  { value: "Harvested", label: "Harvested" },
+  { value: "Stored", label: "Stored" }
+];
+
 export const userInventory = [];

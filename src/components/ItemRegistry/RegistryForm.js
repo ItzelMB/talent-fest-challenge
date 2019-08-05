@@ -41,6 +41,8 @@ class RegistryForm extends Component {
     });
   }
 
+  editItem() {}
+
   submitInventory() {
     console.log(this.state);
     this.setState({ ...INITIAL_STATE });
@@ -51,7 +53,11 @@ class RegistryForm extends Component {
       <section>
         <FormBase onSubmitForm={this.onSubmitForm} />
         {this.state.items && (
-          <RegistryList items={this.state.items} removeItem={this.removeItem} />
+          <RegistryList
+            items={this.state.items}
+            removeItem={this.removeItem}
+            editItem={this.editItem}
+          />
         )}
         <div>
           <button
