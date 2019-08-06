@@ -57,7 +57,7 @@ class SignInFormBase extends Component {
     return (
       <div className="card">
         <div className="card-body">
-          <p className="title"> Iniciar Sesión</p>
+          <p className="title"> Sign In</p>
           <form onSubmit={this.onSubmit}>
             {/*<label>Email</label>*/}
             <input
@@ -65,7 +65,7 @@ class SignInFormBase extends Component {
               value={email}
               onChange={this.onChange}
               type="text"
-              placeholder="Correo electrónico"
+              placeholder="Email"
             />
             {/*<label>Constraseña</label>*/}
             <input
@@ -73,10 +73,10 @@ class SignInFormBase extends Component {
               value={password}
               onChange={this.onChange}
               type="password"
-              placeholder="Contraseña"
+              placeholder="Password"
             />
             <button className="btn btn-success button" disabled={isInvalid} type="submit">
-              ENTRAR A INVENTORY
+              GO TO INVENTORY
             </button>
 
             {error && <p>{error.message}</p>}
