@@ -12,7 +12,7 @@ const logOut = history => {
 
 const Navigation = ({ authUser, history }) => (
   <nav className="navbar">
-    <a className="navbar-brand logo" href="">Inventory sys</a>
+    <a className="navbar-brand logo" href="">Inventory</a>
 
       <ul className="navbar-nav">
         {authUser ? (
@@ -22,6 +22,9 @@ const Navigation = ({ authUser, history }) => (
             </li>
             <li className="nav-item">
               <Link to={ROUTES.INVENTORY}>My inventory</Link>
+            </li>
+            <li className="nav-item">
+              <Link to={ROUTES.INVENTORY}>Global inventory</Link>
             </li>
             <li className="nav-item">
               <Link to={ROUTES.CONFIGURATION}>Configuration</Link>

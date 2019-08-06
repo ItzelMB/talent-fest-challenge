@@ -1,3 +1,40 @@
 h1 {
     padding-top: 2rem;
 }
+
+.name-table {
+    background-color: #738703;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.updated {
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+.filter {
+    margin-right: 2rem;
+}
+
+.statistics {
+    width: 220px;
+    height: 55px;
+    margin-left: 6rem;
+    margin-top: 1rem;
+}
+
+.feature {
+    margin-right: 1rem;
+}
+
+.number {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.table {
+    margin-bottom: 5rem;
+}

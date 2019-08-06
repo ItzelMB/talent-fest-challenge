@@ -1,6 +1,7 @@
 .width {
-  width: 10rem;
+  width: 9.5rem;
   display: inline-block;
+  margin-top: 1rem;
 }
 
 h1 {

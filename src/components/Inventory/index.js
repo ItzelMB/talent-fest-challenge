@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { list } from "../Auth";
 import { locations, status } from "../../data";
+import "./inventory.css";
 
 class Inventory extends Component {
   constructor(props) {
@@ -27,16 +28,16 @@ class Inventory extends Component {
     const { inventories, filter, locationFilter, statusFilter } = this.state;
 
     return (
-      <div>
+      <div className="container">
         <h1>Global Inventory</h1>
-        <div>
-          <span>
-            Filtrar por Localidad:
+        {/*<div className="row">
+          <span className="filter">
+            Filter by Localidad:
             <select
             // value={this.state.location}
             // onChange={this.handleFilterLocation}
             >
-              <option>Select a Location</option>
+              <option>Select a location</option>
               {locations.map((el, idx) => (
                 <option key={idx} value={el.value}>
                   {el.label}
@@ -45,12 +46,12 @@ class Inventory extends Component {
             </select>
           </span>
           <span>
-            Filtrar por Status:
+            Filter by Status:
             <select
             // value={this.state.location}
             // onChange={this.handleFilterStatus}
             >
-              <option>Select a Location</option>
+              <option>Select a status</option>
               {status.map((el, idx) => (
                 <option key={idx} value={el.value}>
                   {el.label}
@@ -58,12 +59,13 @@ class Inventory extends Component {
               ))}
             </select>
           </span>
-        </div>
-        <section>
+          <button className="btn btn-success statistics">STATISTICS</button>
+              </div>*/}
+        <section className="table">
           {!filter && (
             <div>
-              <div>
-                <div className="width"> UPDATED </div>
+              <div className="name-table">
+                <div className="width updated"> UPDATED </div>
                 <div className="width"> PRODUCT </div>
                 <div className="width"> QUALITY </div>
                 <div className="width"> QUANTITY (kg) </div>
@@ -76,7 +78,7 @@ class Inventory extends Component {
                   <div key={idx}>
                     {el.items.map((it, idx) => (
                       <div key={idx}>
-                        <div className="width">
+                        <div className="width updated">
                           {el.created.slice(0, 10)} {el.created.slice(11, 19)}
                         </div>
                         <div className="width"> {it.product}</div>
