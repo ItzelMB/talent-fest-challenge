@@ -63,8 +63,8 @@ class SignInFormBase extends Component {
     }
 
     return (
-      <div className="card">
-        <div className="card-body">
+      <div className="card card-login">
+        <div className="card-body card-body-login">
           <p className="title"> Sign In</p>
           <form onSubmit={this.onSubmit}>
             {/*<label>Email</label>*/}
@@ -84,7 +84,7 @@ class SignInFormBase extends Component {
               placeholder="Password"
             />
             <button
-              className="btn btn-success button"
+              className="btn btn-success button-login"
               disabled={isInvalid}
               type="submit"
             >

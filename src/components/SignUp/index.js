@@ -67,8 +67,8 @@ class SignUpFormBase extends Component {
       name === "";
 
     return (
-      <div className="card">
-        <div className="card-body">
+      <div className=" card card-login">
+        <div className=" card-body card-body-login">
           <p className="title">Sign Up</p>
           <form onSubmit={this.onSubmit} className="sign-up-form">
             {/*<label>Full Name</label>*/}
@@ -118,7 +118,7 @@ class SignUpFormBase extends Component {
               placeholder="Confirm Password"
             />
             <button
-              className="btn btn-success button"
+              className="btn btn-success button-login"
               disabled={isInvalid}
               type="submit"
             >

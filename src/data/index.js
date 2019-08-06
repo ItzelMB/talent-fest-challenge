@@ -2,7 +2,11 @@
 export const products = [
   { value: "Rice", label: "Rice" },
   { value: "Black Beans", label: "Black Beans" },
-  { value: "Dent Corn", label: "Dent Corn" }
+  { value: "Corn", label: "Corn" },
+  { value: "Wheat", label: "Dent Corn" },
+  { value: "Oat", label: "Oat" },
+  { value: "Sorghum", label: "Sorghum" },
+  { value: "Peanut", label: "Peanut" }
 ];
 
 // DEBEN VENIR DE MONGO DB //

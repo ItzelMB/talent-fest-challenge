@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import RegistryList from "./RegistryList";
 import FormBase from "./Form";
-import {isAuthenticated, create} from '../Auth';
+import { isAuthenticated, create } from '../Auth';
 
 const INITIAL_STATE = {
   user: {},
@@ -45,30 +45,30 @@ class RegistryForm extends Component {
 
   submitInventory(event) {
     event.preventDefault();
-    
-        console.log(this.state.items)   
-        const user = isAuthenticated().user;
-        console.log(user);
-        const userId = isAuthenticated().user._id;
-        const token = isAuthenticated().token;
-        const objeto = {items:null};
-        objeto.items=this.state.items
-        
-        create(userId, token, objeto).then(data => {
-            if(data.error) this.setState({error: data.error});
-            
-            
-        });
-     this.setState({ ...INITIAL_STATE });
-    
+
+    console.log(this.state.items)
+    const user = isAuthenticated().user;
+    console.log(user);
+    const userId = isAuthenticated().user._id;
+    const token = isAuthenticated().token;
+    const objeto = { items: null };
+    objeto.items = this.state.items
+
+    create(userId, token, objeto).then(data => {
+      if (data.error) this.setState({ error: data.error });
+
+
+    });
+    this.setState({ ...INITIAL_STATE });
+
   }
 
-  componentDidMount(){
+  componentDidMount() {
     //this.postData = new FormData();
-    this.setState({user: isAuthenticated().user}) 
+    this.setState({ user: isAuthenticated().user })
     console.log(this.state.user);
-    
-}
+
+  }
 
   render() {
     return (
@@ -82,7 +82,7 @@ class RegistryForm extends Component {
           />
         )}
         <div>
-          <button
+          <button className="btn btn-success buttonSubmit"
             disabled={!this.state.items[0]}
             onClick={this.submitInventory}
           >

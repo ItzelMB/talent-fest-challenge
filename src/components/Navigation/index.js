@@ -2,6 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import * as ROUTES from "../../constants/routes";
 import { signout } from "../Auth";
+import "./navigation.css";
 
 const logOut = history => {
   signout();
@@ -10,40 +11,40 @@ const logOut = history => {
 };
 
 const Navigation = ({ authUser, history }) => (
-  <nav>
-    <ul>
-      <h1>GrainChain Inventory System</h1>
+  <nav className="navbar">
+    <a className="navbar-brand logo" href="">Inventory sys</a>
 
-      {authUser ? (
-        <React.Fragment>
-          <li>
-            <Link to={ROUTES.ITEM_REGISTRY}>Register Item</Link>
-          </li>
-          <li>
-            <Link to={ROUTES.INVENTORY}>Inventory</Link>
-          </li>
-          <li>
-            <Link to={ROUTES.CONFIGURATION}>Configuration</Link>
-          </li>
-          <button
-            onClick={() => {
-              logOut(history);
-            }}
-          >
-            Sign Out
-          </button>
-        </React.Fragment>
-      ) : (
-        <React.Fragment>
-          <li>
-            <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-          </li>
-          <li>
-            <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
-          </li>
-        </React.Fragment>
-      )}
-    </ul>
+      <ul className="navbar-nav">
+        {authUser ? (
+          <React.Fragment>
+            <li className="nav-item">
+              <Link to={ROUTES.ITEM_REGISTRY}>Create inventory</Link>
+            </li>
+            <li className="nav-item">
+              <Link to={ROUTES.INVENTORY}>My inventory</Link>
+            </li>
+            <li className="nav-item">
+              <Link to={ROUTES.CONFIGURATION}>Configuration</Link>
+            </li>
+            <button className="btn btn-outline-success my-2 my-sm-0 signOut-btn"
+              onClick={() => {
+                logOut(history);
+              }}
+            >
+              Sign Out
+            </button>
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <li className="nav-item">
+              <Link to={ROUTES.SIGN_IN}>Sign In</Link>
+            </li>
+            <li className="nav-item">
+              <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+            </li>
+          </React.Fragment>
+        )}
+      </ul>
   </nav>
 );
 
