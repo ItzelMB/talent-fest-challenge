@@ -1,68 +1,62 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Grain Chain Inventory
 
-## Available Scripts
+## Índice
 
-In the project directory, you can run:
+- [Grain Chain](#Empresa-y-Reto)
+- [Challenge](#Challenge)
+- [Prototipado final](#Propuesta-y-solución)
+- [Tecnologías](#Tecnologías-usadas)
 
-### `npm start`
+## Empresa
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Grain Chain ha dedicado sus esfuerzos a crear aplicaciones para las personas que se dedican a la agricultura, específicamente a los agricultores de siembra de granos, cuentan con una plataforma que facilita la disponibilidad inmediata de productos comercializables para los compradores.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Challenge
 
-### `npm test`
+El objetivo principal de nuestro reto es desarrollar una aplicación de manejo de inventarios, enviar estos inventarios de diferentes localidades a una base de datos local y de ajhí enviarlos a una base de datos local, y de ahí enviarlos a una base de datos global.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+La problemática principal es lograr el acceso a la aplicación en modo offline, el envío de datos dentro de estas localidades cuentan con conexiones intermitentes, el reto es crear una sincronización entre las bases de datos locales y la global sin que haya duplicidad en el envío de sus bases de datos.
+![Sistema_redes]()
+## Propuesta y solución 
+En un prototipo de alta fidelidad, se realizó el movimiento que debe de presentar nuestra página en bases generales.
 
-### `npm run build`
+Aquí mostramos la liga para acceder al prototipado en Figma.
+[Figma](https://www.figma.com/proto/O40xENLXokBb1MMcjX8rj2Ld/Prototipado-DataLovers?node-id=1%3A2&scaling=scale-down)
+![Prototipado Figma](https://raw.githubusercontent.com/Tita-Navarro/GDL002-data-lovers/test/images/Prototipado_alta_fidelidad_figma.jpg)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tecnologías usadas
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Definimos cada historia de usuario en base a la necesidad que pensamos cubrir y que el usuario al verlo supiera que hacer.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Como usuario necesito una pagina de inicio para conocer información relevante de la aplicación y que puede hacer en el sitio.
 
-### `npm run eject`
+- Como usuario debo poder ver todos los Pokémons en un listado con nombre y número de cada uno de ellos.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Como usuario necesito filtrar los Pokémons para poder listarlos segun una condicion dada.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Como usuario necesito ordenar la lista de pokemones segun una condicion dada.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Como usuario necesito que la aplicación se adapte a los diferentes dispositivos para poder usar la app en diferentes pantallas.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Pruebas de usuarios
 
-## Learn More
+Los usuarios que probaron la aplicación vieron que el botón que utilizamos para regresar al inicio no se diferenciaba, el listado de los Pokémons necesitaba una mejor distribución. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+También el botón que tenemos que lleva al usuario a ver aplicaciones móviles se cambió para que en las versiones responsivas fuera claro y legible.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+El color de fondo de las tarjetas en el listado de Pokémons se le agregó ya que no cuadraba con el fondo del body.
 
-### Code Splitting
+Al final el usuario supo como navegar en la página e ir a los otros sitios web que le proporcionamos con la mecánica de que de un corto a mediano plazo podamos generar una comunidad con los usuarios que lleguen a nuestra página web puedan ayudarnos a generar más data que sirva a otros usuarios.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Resultados
 
-### Analyzing the Bundle Size
+Al final los resultados de nuestra web son algunos que ponemos a continuación:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+![Resultado web](https://github.com/Tita-Navarro/GDL002-data-lovers/blob/test/images/Prototipado_alta_fidelidad.jpg)
 
-### Making a Progressive Web App
+![Resultado web 2](https://raw.githubusercontent.com/Tita-Navarro/GDL002-data-lovers/test/images/resultado_web_final.jpg)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+![Resultado web 3](https://raw.githubusercontent.com/Tita-Navarro/GDL002-data-lovers/test/images/resultado_web_final2.jpg)
 
-### Advanced Configuration
+![Resultado web 4](https://raw.githubusercontent.com/Tita-Navarro/GDL002-data-lovers/test/images/resultado_web_final3.jpg)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
