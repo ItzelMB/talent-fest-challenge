@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { locations } from "../../data";
-import { signup } from '../Auth';
-import './signUp.css';
+import { signup } from "../Auth";
+import "./signUp.css";
 
 const SignUpPage = () => (
   <div className="signUp">
@@ -39,19 +39,18 @@ class SignUpFormBase extends Component {
     };
     console.log(user);
     signup(user).then(data => {
-      console.log(data.error)
+      console.log(data.error);
       if (data.error) this.setState({ error: data.error });
-      else this.setState({
-        error: "",
-        name: "",
-        email: "",
-        password: "",
-        location: "",
-        open: true
-      });
-
+      else
+        this.setState({
+          error: "",
+          name: "",
+          email: "",
+          password: "",
+          location: "",
+          open: true
+        });
     });
-
   };
 
   onChange = event => {
@@ -90,17 +89,17 @@ class SignUpFormBase extends Component {
             />
             {/*<label>
               Location:*/}
-              <select
-                value={this.state.location}
-                onChange={this.handleChangeLocation}
-              >
-                <option>Select a Location</option>
-                {locations.map((el, idx) => (
-                  <option key={idx} value={el.value}>
-                    {el.label}
-                  </option>
-                ))}
-              </select>
+            <select
+              value={this.state.location}
+              onChange={this.handleChangeLocation}
+            >
+              <option>Select a Location</option>
+              {locations.map((el, idx) => (
+                <option key={idx} value={el.value}>
+                  {el.label}
+                </option>
+              ))}
+            </select>
             {/*</label>*/}
             {/*<label>Password</label>*/}
             <input
@@ -118,7 +117,11 @@ class SignUpFormBase extends Component {
               type="password"
               placeholder="Confirm Password"
             />
-            <button className="btn btn-success button" disabled={isInvalid} type="submit">
+            <button
+              className="btn btn-success button"
+              disabled={isInvalid}
+              type="submit"
+            >
               Sign Up
             </button>
             {error && <p>{error.message}</p>}

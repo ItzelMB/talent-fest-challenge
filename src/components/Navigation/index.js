@@ -12,6 +12,8 @@ const logOut = history => {
 const Navigation = ({ authUser, history }) => (
   <nav>
     <ul>
+      <h1>GrainChain Inventory System</h1>
+
       {authUser ? (
         <React.Fragment>
           <li>

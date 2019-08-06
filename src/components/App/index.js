@@ -25,7 +25,6 @@ class App extends Component {
         <Router>
           <div>
             <Navigation authUser={this.state.authUser} /> <hr />
-            <h1>Inventory System</h1>
             <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
             <Route path={ROUTES.SIGN_IN} component={SignInPage} />
             <Route path={ROUTES.CONFIGURATION} component={ConfigurationPage} />
