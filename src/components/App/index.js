@@ -25,11 +25,36 @@ class App extends Component {
         <Router>
           <div>
             <Navigation authUser={this.state.authUser} /> <hr />
-            <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
-            <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-            <Route path={ROUTES.CONFIGURATION} component={ConfigurationPage} />
-            <Route path={ROUTES.INVENTORY} component={InventoryPage} />
-            <Route path={ROUTES.ITEM_REGISTRY} component={ItemRegistryPage} />
+            <Route
+              npm
+              install
+              gh-pages={ROUTES.SIGN_UP}
+              component={SignUpPage}
+            />
+            <Route
+              npm
+              install
+              gh-pages={ROUTES.SIGN_IN}
+              component={SignInPage}
+            />
+            <Route
+              npm
+              install
+              gh-pages={ROUTES.CONFIGURATION}
+              component={ConfigurationPage}
+            />
+            <Route
+              npm
+              install
+              gh-pages={ROUTES.INVENTORY}
+              component={InventoryPage}
+            />
+            <Route
+              npm
+              install
+              gh-pages={ROUTES.ITEM_REGISTRY}
+              component={ItemRegistryPage}
+            />
           </div>
         </Router>
       </div>
