@@ -3,7 +3,7 @@
     font-weight: 400;
     font-size: 2.5rem;
     color: white;
-    padding-left: 2rem;
+    padding-left: 4rem;
 }
 
 .navbar {
@@ -35,6 +35,6 @@ a {
 }
 
 .signOut-btn {
-    margin-right: 2rem;
+    margin-right: 4rem;
     width: 150px;
 }

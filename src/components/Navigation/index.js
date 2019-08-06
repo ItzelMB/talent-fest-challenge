@@ -18,10 +18,10 @@ const Navigation = ({ authUser, history }) => (
         {authUser ? (
           <React.Fragment>
             <li className="nav-item">
-              <Link to={ROUTES.ITEM_REGISTRY}>Register Item</Link>
+              <Link to={ROUTES.ITEM_REGISTRY}>Create inventory</Link>
             </li>
             <li className="nav-item">
-              <Link to={ROUTES.INVENTORY}>Inventory</Link>
+              <Link to={ROUTES.INVENTORY}>My inventory</Link>
             </li>
             <li className="nav-item">
               <Link to={ROUTES.CONFIGURATION}>Configuration</Link>
