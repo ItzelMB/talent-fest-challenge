@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FormBase from "./Form";
+//import FormBase from "./Form";
 
 class RegistryList extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class RegistryList extends Component {
     this.setState({ editMode: true });
   }
   render() {
-    const { items, removeItem, editItem } = this.props;
+    const { items, removeItem } = this.props;
     const { editMode } = this.state;
     return (
       <div>
