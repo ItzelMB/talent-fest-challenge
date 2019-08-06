@@ -19,7 +19,7 @@ class Configuration extends Component {
             <p>Email: {user.email}</p>
             <p>Location: {user.location}</p>
           </div>
-          <button className="btn btn-success">Editar Datos</button>
+          {/*<button className="btn btn-success">Editar Datos</button>*/}
         </section>
       </div>
     );

@@ -61,7 +61,7 @@ class Inventory extends Component {
           </span>
           <button className="btn btn-success statistics">STATISTICS</button>
               </div>*/}
-        <section>
+        <section className="table">
           {!filter && (
             <div>
               <div className="name-table">

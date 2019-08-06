@@ -19,14 +19,14 @@ class RegistryList extends Component {
         {items.map((el, idx) =>
           !editMode ? (
             <p key={idx}>
-              <i>{idx + 1} </i>
+              <i className="number">{idx + 1} </i>
               <strong>Product:</strong>
               <span className="data"> {el.product ? el.product : "~"}</span>{" "}
-              <strong>Quality:</strong>
+              <strong className="feature">Quality:</strong>
               <span className="data"> {el.quality ? el.quality : "~"}</span>{" "}
-              <strong>Quantity:</strong>
+              <strong className="feature">Quantity:</strong>
               <span className="data"> {el.quantity ? el.quantity : "~"} kg</span>{" "}
-              <strong>Notes:</strong>
+              <strong className="feature">Notes:</strong>
               <span className="data"> {el.notes ? el.notes : "~"}</span>
               {/* <button onClick={() => this.onEditItem()}>Edit Item</button> */}
               <button className="btn btn-danger button-delete"
