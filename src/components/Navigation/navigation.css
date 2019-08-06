@@ -1,0 +1,40 @@
+.logo {
+    font-family: 'Noto Serif', serif;
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: white;
+    padding-left: 2rem;
+}
+
+.navbar {
+    background-color: #1B1F01;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+
+}
+
+.navbar-nav {
+    display: inline;
+}
+
+.nav-item {
+    display: inline;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+    font-family: 'Source Sans Pro', sans-serif !important;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+a {
+    color: white !important;
+    text-decoration: none;
+}
+
+.signOut-btn {
+    margin-right: 2rem;
+    width: 150px;
+}
