@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { locations } from "../../data";
 import { signup } from '../Auth';
+import './signUp.css';
 
 const SignUpPage = () => (
-  <div>
-    <h1>SignUp</h1>
+  <div className="signUp">
     <SignUpForm />
   </div>
 );
@@ -30,28 +30,28 @@ class SignUpFormBase extends Component {
   }
   onSubmit = event => {
     event.preventDefault();
-    const {name, email, password, location} = this.state;
+    const { name, email, password, location } = this.state;
     const user = {
-        name,
-        email,
-        password,
-        location
+      name,
+      email,
+      password,
+      location
     };
     console.log(user);
     signup(user).then(data => {
       console.log(data.error)
-         if(data.error) this.setState({error: data.error}); 
-         else this.setState({
-             error: "",
-             name: "",
-             email: "",
-             password: "",
-             location: "",
-             open: true
-         });
-         
+      if (data.error) this.setState({ error: data.error });
+      else this.setState({
+        error: "",
+        name: "",
+        email: "",
+        password: "",
+        location: "",
+        open: true
       });
-      
+
+    });
+
   };
 
   onChange = event => {
@@ -68,58 +68,63 @@ class SignUpFormBase extends Component {
       name === "";
 
     return (
-      <form onSubmit={this.onSubmit} className="sign-up-form">
-        <label>Full Name</label>
-        <input
-          name="name"
-          value={name}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Nombre Completo"
-        />
-        <label>Email</label>
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email"
-        />
-        <label>
-          Location:
-          <select
-            value={this.state.location}
-            onChange={this.handleChangeLocation}
-          >
-            <option />
-            {locations.map((el, idx) => (
-              <option key={idx} value={el.value}>
-                {el.label}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>Password</label>
-        <input
-          name="password"
-          value={password}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <label>Confirm Password</label>
-        <input
-          name="passwordTwo"
-          value={passwordTwo}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Confirm Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign Up
-        </button>
-        {error && <p>{error.message}</p>}
-      </form>
+      <div className="card">
+        <div className="card-body">
+          <p className="title">Sign Up</p>
+          <form onSubmit={this.onSubmit} className="sign-up-form">
+            {/*<label>Full Name</label>*/}
+            <input
+              name="name"
+              value={name}
+              onChange={this.onChange}
+              type="text"
+              placeholder="Full Name"
+            />
+            {/*<label>Email</label>*/}
+            <input
+              name="email"
+              value={email}
+              onChange={this.onChange}
+              type="text"
+              placeholder="Email"
+            />
+            {/*<label>
+              Location:*/}
+              <select
+                value={this.state.location}
+                onChange={this.handleChangeLocation}
+              >
+                <option>Select a Location</option>
+                {locations.map((el, idx) => (
+                  <option key={idx} value={el.value}>
+                    {el.label}
+                  </option>
+                ))}
+              </select>
+            {/*</label>*/}
+            {/*<label>Password</label>*/}
+            <input
+              name="password"
+              value={password}
+              onChange={this.onChange}
+              type="password"
+              placeholder="Password"
+            />
+            {/*<label>Confirm Password</label>*/}
+            <input
+              name="passwordTwo"
+              value={passwordTwo}
+              onChange={this.onChange}
+              type="password"
+              placeholder="Confirm Password"
+            />
+            <button className="btn btn-success button" disabled={isInvalid} type="submit">
+              Sign Up
+            </button>
+            {error && <p>{error.message}</p>}
+          </form>
+        </div>
+      </div>
     );
   }
 }
