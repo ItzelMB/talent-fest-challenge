@@ -16,47 +16,20 @@ Grain Chain ha dedicado sus esfuerzos a crear aplicaciones para las personas que
 El objetivo principal de nuestro reto es desarrollar una aplicación de manejo de inventarios, enviar estos inventarios de diferentes localidades a una base de datos local y de ajhí enviarlos a una base de datos local, y de ahí enviarlos a una base de datos global.
 
 La problemática principal es lograr el acceso a la aplicación en modo offline, el envío de datos dentro de estas localidades cuentan con conexiones intermitentes, el reto es crear una sincronización entre las bases de datos locales y la global sin que haya duplicidad en el envío de sus bases de datos.
-![Sistema_redes]()
-## Propuesta y solución 
-En un prototipo de alta fidelidad, se realizó el movimiento que debe de presentar nuestra página en bases generales.
 
-Aquí mostramos la liga para acceder al prototipado en Figma.
-[Figma](https://www.figma.com/proto/O40xENLXokBb1MMcjX8rj2Ld/Prototipado-DataLovers?node-id=1%3A2&scaling=scale-down)
-![Prototipado Figma](https://raw.githubusercontent.com/Tita-Navarro/GDL002-data-lovers/test/images/Prototipado_alta_fidelidad_figma.jpg)
+![Sistema_redes](https://raw.githubusercontent.com/ItzelMB/talent-fest-challenge/develop/sist-redes.jpg)
+
+## Propuesta y solución 
+
+Durante el proceso surgieron dos planteamientos para escalar la solución. El primero es convertir la aplicación en una Progressive Web App utilizando la tecnología de Workbox, lo que permite en automático la sincronización de data cuando hay conexión. La otra solución es desarrollar cron jobs usando Express para enviar secuencias de comandos que ejecuten automáticamente las tareas de verificar la conexión a internet y enviar la data almacenada localmente a la base de datos global, esto puede complementarse con la réplica de MongoDB.
+Debido al uso de base de datos no relacionales pensamos que diseñar la estructura y producirla con mongo DB sería una buena solución al posible problema de duplicidad de datos por intermitencia en la conexión, ya que Mongo genera id’s aleatorios únicos.
+
+[Figma](https://www.figma.com/proto/YShydOgizp4UcQvUDqY9RH/grain-chain-challenge?node-id=47%3A1342&scaling=contain)
 
 ## Tecnologías usadas
 
-Definimos cada historia de usuario en base a la necesidad que pensamos cubrir y que el usuario al verlo supiera que hacer.
+El reto fue planteado de forma abierta, algunas tecnologías nos fueron sugeridas y también se nos dió la oportunidad de elegir otras para resolverlo.
 
-- Como usuario necesito una pagina de inicio para conocer información relevante de la aplicación y que puede hacer en el sitio.
+Nuestra propuesta es crear una aplicación web con Mongo DB, Mongoose, Express de Node para la construcción del backend y desarrollamos con React JS el front end usando distintas librerías y Bootstrap para el CSS. El prototipo de alta fidelidad lo diseñamos con Figma y usamos 2 repositorios de Github con distintas ramas como controlador de versiones.
 
-- Como usuario debo poder ver todos los Pokémons en un listado con nombre y número de cada uno de ellos.
-
-- Como usuario necesito filtrar los Pokémons para poder listarlos segun una condicion dada.
-
-- Como usuario necesito ordenar la lista de pokemones segun una condicion dada.
-
-- Como usuario necesito que la aplicación se adapte a los diferentes dispositivos para poder usar la app en diferentes pantallas.
-
-## Pruebas de usuarios
-
-Los usuarios que probaron la aplicación vieron que el botón que utilizamos para regresar al inicio no se diferenciaba, el listado de los Pokémons necesitaba una mejor distribución. 
-
-También el botón que tenemos que lleva al usuario a ver aplicaciones móviles se cambió para que en las versiones responsivas fuera claro y legible.
-
-El color de fondo de las tarjetas en el listado de Pokémons se le agregó ya que no cuadraba con el fondo del body.
-
-Al final el usuario supo como navegar en la página e ir a los otros sitios web que le proporcionamos con la mecánica de que de un corto a mediano plazo podamos generar una comunidad con los usuarios que lleguen a nuestra página web puedan ayudarnos a generar más data que sirva a otros usuarios.
-
-## Resultados
-
-Al final los resultados de nuestra web son algunos que ponemos a continuación:
-
-![Resultado web](https://github.com/Tita-Navarro/GDL002-data-lovers/blob/test/images/Prototipado_alta_fidelidad.jpg)
-
-![Resultado web 2](https://raw.githubusercontent.com/Tita-Navarro/GDL002-data-lovers/test/images/resultado_web_final.jpg)
-
-![Resultado web 3](https://raw.githubusercontent.com/Tita-Navarro/GDL002-data-lovers/test/images/resultado_web_final2.jpg)
-
-![Resultado web 4](https://raw.githubusercontent.com/Tita-Navarro/GDL002-data-lovers/test/images/resultado_web_final3.jpg)
-
+Elegimos estas tecnologías porque consideramos que son relevantes en la actualidad y porque nos permitiría llegar a un Producto Mínimo Viable en el plazo del Hackathon.
