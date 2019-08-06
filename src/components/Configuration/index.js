@@ -5,26 +5,22 @@ class Configuration extends Component {
   constructor(props) {
     super(props);
     this.state = { user: isAuthenticated().user };
-    // this.setUser = this.setUser.bind(this);
-  }
-
-  // setUser() {
-  //   console.log("se ejecuta");
-  //   const user = isAuthenticated().user;
-  //   this.setState({ user: user });
-  //   console.log(this.state.user);
-  // }
-
-  componentDidMount() {
-    console.log(this.state.user);
   }
 
   render() {
+    const user = this.state.user;
     return (
       <div>
         <h1>Configuration</h1>
-        {/* <button onClick={this.setUser}>Set user</button> */}
-        <button onClick={signout}>Sign Out</button>
+        <section>
+          <h2>My Profile</h2>
+          <div>
+            <p>Name: {user.name}</p>
+            <p>Email: {user.email}</p>
+            <p>Location: {user.location}</p>
+          </div>
+          <button>Editar Datos</button>
+        </section>
       </div>
     );
   }
