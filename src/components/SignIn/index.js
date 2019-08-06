@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { signin, authenticate } from "../Auth";
-import "./signIn.css"
+import { Redirect } from "react-router-dom";
+import "./signIn.css";
+import * as ROUTES from "../../constants/routes";
 
 const SignInPage = () => (
   <div className="signIn">
@@ -13,7 +15,8 @@ const SignInPage = () => (
 const INITIAL_STATE = {
   email: "",
   password: "",
-  error: null
+  error: null,
+  redirect: false
 };
 
 class SignInFormBase extends Component {
@@ -25,7 +28,7 @@ class SignInFormBase extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    this.setState({ loading: true })
+    this.setState({ loading: true });
     const { email, password } = this.state;
     const user = {
       email,
@@ -34,15 +37,17 @@ class SignInFormBase extends Component {
     console.log(user);
     signin(user).then(data => {
       if (data.error) {
-        this.setState({ error: data.error, loading: false })
-      }
-      else {
+        this.setState({ error: data.error, loading: false });
+      } else {
         //authenticate
         authenticate(data, () => {
-          this.setState({ redirectToReferer: true })
+          this.setState({ redirect: true });
+          window.location.reload();
         });
       }
     });
+
+    // this.props.location.push(ROUTES.INVENTORY);
   };
 
   onChange = event => {
@@ -53,6 +58,9 @@ class SignInFormBase extends Component {
     const { email, password, error } = this.state;
 
     const isInvalid = password === "" || email === "";
+    if (this.state.redirect) {
+      return <Redirect to={ROUTES.INVENTORY} />;
+    }
 
     return (
       <div className="card">
@@ -75,7 +83,11 @@ class SignInFormBase extends Component {
               type="password"
               placeholder="Password"
             />
-            <button className="btn btn-success button" disabled={isInvalid} type="submit">
+            <button
+              className="btn btn-success button"
+              disabled={isInvalid}
+              type="submit"
+            >
               GO TO INVENTORY
             </button>
 

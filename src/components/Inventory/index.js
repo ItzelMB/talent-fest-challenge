@@ -20,6 +20,7 @@ class Inventory extends Component {
 
   render() {
     const { inventories } = this.state;
+
     return (
       <div>
         <h1>Global Inventory</h1>
