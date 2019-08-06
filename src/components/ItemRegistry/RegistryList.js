@@ -21,20 +21,20 @@ class RegistryList extends Component {
             <p key={idx}>
               <i>{idx + 1} </i>
               <strong>Product:</strong>
-              <span> {el.product ? el.product : "~"}</span>{" "}
+              <span className="data"> {el.product ? el.product : "~"}</span>{" "}
               <strong>Quality:</strong>
-              <span> {el.quality ? el.quality : "~"}</span>{" "}
+              <span className="data"> {el.quality ? el.quality : "~"}</span>{" "}
               <strong>Quantity:</strong>
-              <span> {el.quantity ? el.quantity : "~"} kg</span>{" "}
+              <span className="data"> {el.quantity ? el.quantity : "~"} kg</span>{" "}
               <strong>Notes:</strong>
-              <span> {el.notes ? el.notes : "~"}</span>
+              <span className="data"> {el.notes ? el.notes : "~"}</span>
               {/* <button onClick={() => this.onEditItem()}>Edit Item</button> */}
-              <button
+              <button className="btn btn-danger button-delete"
                 onClick={() => {
                   removeItem(idx);
                 }}
               >
-                Erase Item
+                Delete Item
               </button>
             </p>
           ) : (

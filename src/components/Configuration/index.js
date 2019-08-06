@@ -10,7 +10,7 @@ class Configuration extends Component {
   render() {
     const user = this.state.user;
     return (
-      <div>
+      <div className="container">
         <h1>Configuration</h1>
         <section>
           <h2>My Profile</h2>
@@ -19,7 +19,7 @@ class Configuration extends Component {
             <p>Email: {user.email}</p>
             <p>Location: {user.location}</p>
           </div>
-          <button>Editar Datos</button>
+          <button className="btn btn-success">Editar Datos</button>
         </section>
       </div>
     );

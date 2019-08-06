@@ -17,10 +17,10 @@ class ItemRegistry extends Component {
             <h1>Create inventory</h1>
             <p className="subtitle">Register item</p>
           </div>
-          <section class="col userInfo">
+          {/*<section class="col userInfo">
             <p>User: {user.username}</p>
             <p>Location: {user.location}</p>
-          </section>
+    </section>*/}
           <section className="productView">
               <RegistryForm storeItem={this.storeItem} />
           </section>

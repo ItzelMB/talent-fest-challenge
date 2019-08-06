@@ -7,7 +7,7 @@
 }
 
 .navbar {
-    background-color: #1B1F01;
+    background-image: url("https://claudiagarfias.works/laboratoria/sharedimages/nav.png");
     display: flex;
     flex-wrap: wrap;
     padding-left: 0;
