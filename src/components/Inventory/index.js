@@ -36,8 +36,18 @@ class Inventory extends Component {
           {inventories &&
             inventories.map((el, idx) => (
               <div key={idx}>
-                <span>{el.created}</span>
-                <span>holi! {el.notesBy.name}</span>
+                {/* <span>{el.created}</span> */}
+                {el.items.map((it, idx) => (
+                  <div>
+                    <span>{el.created}</span>
+                    <span>{it.product}</span>
+                    <span>{it.quality}</span>
+                    <span>{it.quantity}</span>
+                    <span>{it.status}</span>
+                    <span>{el.notesBy.name}</span>
+                    <span>{el.notesBy.location}</span>
+                  </div>
+                ))}
               </div>
             ))}
         </section>
