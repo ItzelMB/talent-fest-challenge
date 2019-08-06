@@ -25,27 +25,29 @@ class Inventory extends Component {
         <h1>Global Inventory</h1>
         <section>
           <div>
-            <span> UPDATED </span>
-            <span> PRODUCT </span>
-            <span> QUALITY </span>
-            <span> QUANTITY </span>
-            <span> STATUS </span>
-            <span> OWNER </span>
-            <span> LOCATION </span>
+            <div className="width"> UPDATED </div>
+            <div className="width"> PRODUCT </div>
+            <div className="width"> QUALITY </div>
+            <div className="width"> QUANTITY </div>
+            <div className="width"> STATUS </div>
+            <div className="width"> OWNER </div>
+            <div className="width"> LOCATION </div>
           </div>
           {inventories &&
             inventories.map((el, idx) => (
               <div key={idx}>
-                {/* <span>{el.created}</span> */}
+                {/* <div className="width">{el.created}</div> */}
                 {el.items.map((it, idx) => (
-                  <div>
-                    <span>{el.created}</span>
-                    <span>{it.product}</span>
-                    <span>{it.quality}</span>
-                    <span>{it.quantity}</span>
-                    <span>{it.status}</span>
-                    <span>{el.notesBy.name}</span>
-                    <span>{el.notesBy.location}</span>
+                  <div key={idx}>
+                    <div className="width">
+                      {el.created.slice(0, 10)} {el.created.slice(11, 19)}
+                    </div>
+                    <div className="width"> {it.product}</div>
+                    <div className="width"> {it.quality}</div>
+                    <div className="width"> {it.quantity}</div>
+                    <div className="width"> {it.status}</div>
+                    <div className="width"> {el.notesBy.name}</div>
+                    <div className="width"> {el.notesBy.location}</div>
                   </div>
                 ))}
               </div>
